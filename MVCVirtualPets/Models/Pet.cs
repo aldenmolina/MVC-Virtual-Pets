@@ -8,5 +8,6 @@ namespace MVCVirtualPets.Models
     public class Pet
     {
         public string Name { get; set; }
+        public int Id { get; set; }
     }
 }

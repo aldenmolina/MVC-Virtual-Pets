@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<MVCVirtualPets.Models.Pet>
+
 @{
     Layout = null;
 }
@@ -15,8 +16,11 @@
     <h1>Welcome to Pets!</h1>
     <p>Wachu really want wachu realy really want?</p>
     <ol>
-        <li><a href="/Pet/Details">Fido</a></li>
-        <li><a href="/Pet/Details">Gregory</a></li>
+        @foreach (var pet in Model)
+        {
+            <li><a href="/Pet/Details/@pet.Id">@pet.Name</a></li>
+        }
+        
     </ol>
     
     

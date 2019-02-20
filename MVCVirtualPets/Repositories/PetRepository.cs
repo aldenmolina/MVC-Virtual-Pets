@@ -15,7 +15,7 @@ namespace MVCVirtualPets.Repositories
                 { 3, new Pet() { Id = 3, Name = "Blue" } }
             };
 
-        public IEnumerable<PetRepository> GetAll()
+        public IEnumerable<Pet> GetAll()
         {
             return pets.Values.ToList();
         }

@@ -11,6 +11,7 @@ namespace MVCVirtualPets.Tests
     public class PetControllerTests
     {
         PetController underTest;
+
         public PetControllerTests()
         {
             var underTest = new PetController();

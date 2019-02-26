@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MVCVirtualPets.Controllers;
 using MVCVirtualPets.Models;
+using MVCVirtualPets.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,9 @@ namespace MVCVirtualPets.Tests
 
         public PetControllerTests()
         {
-            var underTest = new PetController();
+            var context = new PetContext();
+            var petRepo = new PetRepository(context);
+            var underTest = new PetController(petRepo);
         }
 
         [Fact]

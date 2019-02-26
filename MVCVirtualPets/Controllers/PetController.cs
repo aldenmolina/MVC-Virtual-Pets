@@ -20,7 +20,7 @@ namespace MVCVirtualPets.Controllers
 
         public ViewResult Index()
         {
-            var model = petRepo.GetAll();
+            IEnumerable<Pet> model = petRepo.GetAll();
             return View(model);
         }
     

@@ -8,21 +8,22 @@ namespace MVCVirtualPets.Repositories
 {
     public class PetRepository
     {
-        Dictionary<int, Pet> pets = new Dictionary<int, Pet>()
-            {
-                { 1, new Pet() { Id = 1, Name = "Doofus" } },
-                { 2, new Pet() { Id = 2, Name = "Graile" } },
-                { 3, new Pet() { Id = 3, Name = "Blue" } }
-            };
+        PetContext db;
+
+        public PetRepository(PetContext db)
+        {
+            this.db = db;
+        }
+
 
         public IEnumerable<Pet> GetAll()
         {
-            return pets.Values.ToList();
+            return db.Pets.ToList();
         }
 
         public Pet GetById(int id)
         {
-            return pets[id];
+            return db.Pets.Single(pet => pet.Id == id);
         }
     }
 }

@@ -29,5 +29,13 @@ namespace MVCVirtualPets.Controllers
             var model = petRepo.GetById(id);
             return View(model);
         }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        
     }
 }

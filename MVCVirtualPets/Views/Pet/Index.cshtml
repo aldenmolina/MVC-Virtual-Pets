@@ -18,12 +18,12 @@
     <ol>
         @foreach (var pet in Model)
         {
-            <li><a href="/Pet/Details/@pet.Id">@pet.Name</a></li>
+            <li><a href="/Pet/Details/@pet.PetId">@pet.Name</a></li>
         }
         
     </ol>
     
-    
+    <a href="/Pet/Create">Create new pet</a>
 
 </body>
 </html>

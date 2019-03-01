@@ -23,7 +23,7 @@ namespace MVCVirtualPets.Repositories
 
         public Pet GetById(int id)
         {
-            return db.Pets.Single(pet => pet.Id == id);
+            return db.Pets.Single(pet => pet.PetId == id);
         }
     }
 }

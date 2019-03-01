@@ -24,9 +24,9 @@ namespace MVCVirtualPets
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Pet>().HasData(
-                new Pet() { Id = 1, Name = "Doofus" } ,
-                new Pet() { Id = 2, Name = "Graile" } ,
-                new Pet() { Id = 3, Name = "Blue" } 
+                new Pet() { PetId = 1, Name = "Doofus", Description = "Doofus is doofy" } ,
+                new Pet() { PetId = 2, Name = "Graile", Description = "Graile is holy" } ,
+                new Pet() { PetId = 3, Name = "Blue", Description = "My boy blue" } 
                 );
             base.OnModelCreating(modelBuilder);
         }

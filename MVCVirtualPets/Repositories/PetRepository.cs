@@ -37,5 +37,11 @@ namespace MVCVirtualPets.Repositories
             db.Pets.Remove(pet);
             db.SaveChanges();
         }
+
+        public void Edit(Pet pet)
+        {
+            db.Update(pet);
+            db.SaveChanges();
+        }
     }
 }

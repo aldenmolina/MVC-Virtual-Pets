@@ -45,7 +45,7 @@ namespace MVCVirtualPets.Tests
             var expectedId = 2;
             var result = underTest.Details(expectedId);
             var model = (Pet)result.Model;
-            Assert.Equal(expectedId, model.Id);
+            Assert.Equal(expectedId, model.PetId);
         }
     }
 }

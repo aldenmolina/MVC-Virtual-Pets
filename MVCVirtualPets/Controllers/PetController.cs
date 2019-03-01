@@ -31,11 +31,16 @@ namespace MVCVirtualPets.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create()
+        public ViewResult Create()
         {
             return View();
         }
 
-        
+        [HttpPost]
+        public ActionResult Create(Pet pet)
+        {
+            petRepo.Create(pet);
+            return RedirectToAction("Index");
+        }
     }
 }

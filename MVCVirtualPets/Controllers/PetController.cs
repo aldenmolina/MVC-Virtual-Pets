@@ -42,5 +42,19 @@ namespace MVCVirtualPets.Controllers
             petRepo.Create(pet);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ViewResult Delete(int id)
+        {
+            var model = petRepo.GetById(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(Pet pet)
+        {
+            petRepo.Delete(pet);
+            return RedirectToAction("Index");
+        }
     }
 }

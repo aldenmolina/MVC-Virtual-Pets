@@ -25,5 +25,17 @@ namespace MVCVirtualPets.Repositories
         {
             return db.Pets.Single(pet => pet.PetId == id);
         }
+
+        public void Create(Pet pet)
+        {
+            db.Pets.Add(pet);
+            db.SaveChanges();
+        }
+
+        public void Delete(Pet pet)
+        {
+            db.Pets.Remove(pet);
+            db.SaveChanges();
+        }
     }
 }

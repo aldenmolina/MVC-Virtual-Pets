@@ -20,7 +20,7 @@ namespace MVCVirtualPets.Controllers
 
         public ViewResult Index()
         {
-            IEnumerable<Pet> model = petRepo.GetAll();
+            var model = petRepo.GetAll();
             return View(model);
         }
     
@@ -65,9 +65,9 @@ namespace MVCVirtualPets.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edi(Pet pet)
+        public ActionResult Edit(Pet pet)
         {
-            petRepo.Edi(pet);
+            petRepo.Edit(pet);
             return RedirectToAction("Details/" + pet.PetId);
         }
     }

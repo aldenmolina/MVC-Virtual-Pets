@@ -12,7 +12,7 @@ namespace MVCVirtualPets.Models
 
         [Display(Name = "Pet Name:" )]
         public string Name { get; set; }
-        
+        [Display(Description = "Pet Description")]
         public string Description { get; set; }
     }
 }

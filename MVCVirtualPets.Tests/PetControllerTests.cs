@@ -13,12 +13,12 @@ namespace MVCVirtualPets.Tests
     public class PetControllerTests
     {
         PetController underTest;
+        private IPetRepository repo;
 
         public PetControllerTests()
         {
-            var context = new PetContext();
-            var petRepo = new PetRepository(context);
-            var underTest = new PetController(petRepo);
+            repo = Substitute.For<IPetRepository>();
+            underTest = new PetController(repo);
         }
 
         [Fact]
@@ -30,24 +30,24 @@ namespace MVCVirtualPets.Tests
         }
 
         [Fact]
-        public void Index_Model_Has_3_Pets()
+        public void Index_Model_Has_Expected_Model()
         {
-            var result = underTest.Index();
+            var expectedModel = new List<Pet>();
+            repo.GetAll().Returns(expectedModel);
 
+            var result = underTest.Index();
             //Hard cast model into an IEnumerable<Pet>
             var model = (IEnumerable<Pet>)result.Model;
 
-            Assert.Equal(3, model.Count());
+            Assert.Equal(expectedModel, expectedModel);
         }
 
         [Fact]
         public void Details_Model_Is_Expected_Model()
         {
             var expectedId = 2;
-            var expectedModel = new Pet() { PetId = expectedId };
-            var repo = Substitute.For<IPetRepository>();
-            repo.GetById(expectedId).Returns(expectedModel);
-            var underTest = new PetController(repo);
+            var expectedModel = new Pet();        
+            repo.GetById(expectedId).Returns(expectedModel);  
             
             var result = underTest.Details(expectedId);
             var model = (Pet)result.Model;

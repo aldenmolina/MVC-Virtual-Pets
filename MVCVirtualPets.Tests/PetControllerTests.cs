@@ -1,11 +1,12 @@
-using Microsoft.AspNetCore.Mvc;
-using MVCVirtualPets.Controllers;
-using MVCVirtualPets.Models;
-using MVCVirtualPets.Repositories;
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
+using MVCVirtualPets.Models;
+using MVCVirtualPets.Controllers;
+using MVCVirtualPets.Repositories;
 using Xunit;
+using NSubstitute;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MVCVirtualPets.Tests
 {
@@ -40,12 +41,20 @@ namespace MVCVirtualPets.Tests
         }
 
         [Fact]
-        public void Details_Model_Has_Correct_Id()
+        public void Details_Model_Is_Expected_Model()
         {
             var expectedId = 2;
+            var expectedModel = new Pet() { PetId = expectedId };
+            var repo = Substitute.For<IPetRepository>();
+            repo.GetById(expectedId).Returns(expectedModel);
+            var underTest = new PetController(repo);
+            
             var result = underTest.Details(expectedId);
             var model = (Pet)result.Model;
-            Assert.Equal(expectedId, model.PetId);
+
+            Assert.Equal(expectedModel, model);
         }
+
+
     }
 }

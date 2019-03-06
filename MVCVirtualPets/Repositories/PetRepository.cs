@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MVCVirtualPets.Repositories
 {
-    public class PetRepository
+    public class PetRepository : IPetRepository
     {
         PetContext db;
 

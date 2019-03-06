@@ -11,9 +11,9 @@ namespace MVCVirtualPets.Controllers
     public class PetController : Controller
     {
         //Controller picks the data and then attaches them to the view
-        PetRepository petRepo;
+        IPetRepository petRepo;
         
-        public PetController(PetRepository petRepo)
+        public PetController(IPetRepository petRepo)
         {
             this.petRepo = petRepo;
         }

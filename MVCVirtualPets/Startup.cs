@@ -20,7 +20,7 @@ namespace MVCVirtualPets
 
             services.AddDbContext<PetContext>();
 
-            services.AddScoped<PetRepository, PetRepository>();
+            services.AddScoped<IPetRepository, PetRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
